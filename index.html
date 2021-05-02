@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<title>Discord Emoji Generator</title>
+		<link rel="icon" type="image/png" href="favicon.png">
+		<meta name="description" content="Generate custom Discord emojis from text!">
+		<meta name="keywords" content="Discord, emoji, generator">
+		<meta name="author" content="Aaron Meese {@ajmeese7}">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+			integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.2.0/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="index.css">
+
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://unpkg.com/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/3.2.0/js/bootstrap-colorpicker.min.js"></script>
+		<script src="./index.js"></script>
+	</head>
+
+	<body>
+		<div id="userInput">
+			<p>Enter your text for Emoji-ification:</p>
+			<div id="emojiGroup" class="input-group">
+				<input id="emojiText" class="form-control" type="text" required="required" placeholder="Emoji Text" />
+				<div class="input-group-append">
+				  <button id="dropdown" class="btn btn-outline-secondary" type="button">▼</button>
+				</div>
+			</div>
+
+			<!-- Color picker -->
+			<div id="advanced">
+				<div id="text-color" class="input-group" title="Using input value">
+					<label for="txt-color">Text color</label>
+					<input id="txt-color" type="text" class="form-control input-lg" value="#DD0F20"/>
+					<span class="input-group-append">
+						<span class="input-group-text colorpicker-input-addon"><i></i></span>
+					</span>
+				</div>
+				<div id="background-color" class="input-group" title="Using input value">
+					<label for="bg-color">Background color</label>
+					<input id="bg-color" type="text" class="form-control input-lg" value="#DD0F20"/>
+					<span class="input-group-append">
+						<span class="input-group-text colorpicker-input-addon"><i></i></span>
+					</span>
+				</div>
+
+				<label for="emojiSize">Emoji size</label>
+				<input id="emojiSize" class="form-control full-size" placeholder="128" type="number" min="32" max="512" value="128" required="required">
+
+				<label for="lineSpacing">Padding between lines</label>
+				<input id="lineSpacing" class="form-control full-size" placeholder="0" type="number" value="0" required="required">
+
+				<!-- IDEA: Options for stroke, etc: https://www.oreilly.com/library/view/html5-canvas/9781449308032/ch03.html -->
+				<!-- IDEA: Add border radius, after transpiling CoffeeScript: https://sfiddle.net/adamschwartz/9472J/ -->
+			</div>
+
+			<div id="buttons">
+				<button type="button" id="generateButton" class="btn btn-outline-dark" 
+					onclick="generateEmoji()">Generate Emoji</button>
+				<a href="#" id="download" download>
+					<button id="downloadButton" type="button" class="btn btn-outline-success">Download</button>
+				</a>
+			</div>
+		</div>
+
+		<img id="result" />
+	</body>
+</html>

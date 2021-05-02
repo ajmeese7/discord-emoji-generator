@@ -1,0 +1,75 @@
+/* Everything that needs to be centered */
+body,
+button,
+img,
+#userInput {
+	margin: auto;
+	display: table !important;
+}
+
+body {
+	max-width: 1000px;
+}
+
+#userInput {
+	margin-top: 50px !important;
+}
+#emojiText {
+	padding: 5px;
+}
+button {
+	display: inline !important;
+}
+#buttons {
+	margin-top: 5px;
+}
+#download {
+	display: inline-block;
+}
+#download:hover {
+	text-decoration: none;
+}
+button:disabled {
+	cursor: not-allowed;
+}
+.btn-outline-dark.focus, .btn-outline-dark:focus {
+	/* Override the Bootstrap default; 0.2rem is too thick */
+	box-shadow: 0 0 0 0.1rem rgba(52,58,64,.5);
+}
+
+#advanced {
+	display: none;
+	width: 243px;
+}
+.input-group>.form-control {
+	flex: none !important;
+}
+.form-control {
+	width: 200px !important;
+}
+.full-size {
+	width: 100% !important;
+}
+label {
+	font-weight: 500;
+	margin-bottom: .3rem;
+}
+label {
+	margin-top: 3px;
+}
+#emojiGroup {
+	width: 266px;
+	margin: auto;
+}
+#lineSpacing {
+	margin-bottom: 7.5px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}

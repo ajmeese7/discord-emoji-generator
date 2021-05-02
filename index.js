@@ -31,13 +31,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 // ---------------------------------------------------
 
-function generateEmoji() {
+async function generateEmoji() {
 	const emojiText = document.getElementById("emojiText").value;
 	const textColor = document.getElementById("txt-color").value;
 	const backgroundColor = document.getElementById("bg-color").value;
-	const emojiSize = parseInt(document.getElementById("emojiSize").value); 
-	const spaceBetweenLines = parseInt(document.getElementById("lineSpacing").value);
-	let fontface = "monospace";
+	const emojiSize = parseInt(document.getElementById("emojiSize").value || 128); 
+	const spaceBetweenLines = parseInt(document.getElementById("lineSpacing").value || 0);
+	let fontface = document.getElementById("font").value || "monospace";
+
+	// https://stackoverflow.com/a/36248266/6456163
+	if (fontface.includes("http")) {
+		const myFont = new FontFace('Custom Font', `url(${fontface})`);
+		await myFont.load().then((font) => {
+			document.fonts.add(font);
+			console.log("Custom font loaded!");
+			fontface = "Custom Font";
+		});
+	}
 
 	const canvas = document.createElement("canvas");
 	const context = canvas.getContext("2d");
@@ -85,17 +95,3 @@ function generateEmoji() {
 		return generateTextSize(tooLarge ? min : testSize, tooLarge ? testSize : max);
 	}
 }
-
-/*
-// Add custom font support to canvas
-// https://stackoverflow.com/a/36248266/6456163
-let canvasFont = "Papyrus";
-if (font) {
-	const myFont = new FontFace('Custom Font', `url(${font})`);
-	await myFont.load().then((font) => {
-		document.fonts.add(font);
-		console.log("Custom font loaded!");
-		canvasFont = "Custom Font";
-	});
-}
-*/

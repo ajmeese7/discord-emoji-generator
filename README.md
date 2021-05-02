@@ -1,11 +1,18 @@
 # discord-emoji-generator
 Generates emojis with a specified font for use on Discord.
 
-## TODO
-- Add option to create [animated emojis](https://github.com/DenverCoder1/readme-typing-svg)
-- Add hosting on GitHub pages
+## Usage
+In the font field, users can specify any font family supported by HTML by default. Users
+can also paste in a URL to a custom font of their choice.
 
-## Ideas
+**NOTE:** The URL must be to a supported font type, like `woff2` or `ttf`. If you are copying
+the `src` attribute from a Google Font CSS file, be sure to use the Latin font face rather than
+the Latin-ext version.
+
+### TODO
+- Add option to create [animated emojis](https://github.com/DenverCoder1/readme-typing-svg)
+
+### Ideas
 - Export each character in a sentence as a different emoji, adding names to an array as
 an indicator that a letter doesn't need to be generated again, then download the lot of them
 as a ZIP file.
